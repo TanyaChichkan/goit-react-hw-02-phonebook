@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactListItem from './ContactListItem';
-import styles from './Form.module.css';
+import ContactListItem from '../contactListItem/ContactListItem';
+import styles from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 
@@ -12,8 +12,9 @@ const ContactList = ({contacts,onRemoveContact,onUpdateContact})=>(
     name={name}
     number = {number}
     update= {update}
-    onRemove={()=>onRemoveContact(id)}
-    onUpdate={()=>onUpdateContact(id)}/>
+    onRemove={onRemoveContact}
+    onUpdate={onUpdateContact}
+    />
   ))}
 </ul>
 )

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './Form.module.css';
+import styles from './ContactForm.module.css';
 
 export default class ContactForm extends Component{
 
@@ -14,8 +14,9 @@ export default class ContactForm extends Component{
   };
 
   handleSubmit=e=>{
+    const {name,number} = this.state;
     e.preventDefault();
-    this.props.onAddContact(this.state.name, this.state.number)
+    this.props.onAddContact(name, number);
     this.setState({name: "", number:""});
   };
 
@@ -28,21 +29,21 @@ export default class ContactForm extends Component{
 
       <label htmlFor="text" className={styles.label}>Name</label><br/>
       <input value={name}
-      type="text"
-      onChange={this.handleChange}
-      id="text"
-      name = "name"
-      className={styles.input}
+        type="text"
+        onChange={this.handleChange}
+        id="text"
+        name = "name"
+        className={styles.input}
       />
       <br/>
 
       <label htmlFor="number">Number</label><br/>
       <input value={number}
-      type="tel"
-      onChange={this.handleChange}
-      id="number"
-      name = "number"
-      className={styles.input}
+        type="tel"
+        onChange={this.handleChange}
+        id="number"
+        name = "number"
+        className={styles.input}
 
       />
       <br/>

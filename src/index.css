@@ -30,3 +30,17 @@ button {
 label {
   cursor: pointer;
 }
+
+p{
+  margin:0;
+  padding:0;
+}
+
+.container{
+  width: 600px;
+  margin:0 auto;
+}
+
+h1{
+  color: blue;
+}

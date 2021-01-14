@@ -1,14 +1,16 @@
 import React from 'react';
-import styles from './Form.module.css';
 import PropTypes from 'prop-types';
+import styles from './ContactListItem.module.css';
 
 const ContactListItem = function({id,name,number,onRemove,update,onUpdate}){
 
   let updatedClass = update ? styles.updated : styles['not-updated'];
+  let textUpdatedClass = update ? styles['text-updated'] : styles['text-not-updated'];
+  let buttonUpdatedClass= update ? styles['button-updated'] : styles['button-not-updated'];
 
   return (
     <li key={id} className = {updatedClass}>
-      <span className = {styles.text}>{name}: {number}</span>
+      <span className = {textUpdatedClass}>{name}: {number}</span>
 
       <div className = {styles.wrapper}>
         <label id="delete" className = {styles.itemLabel}>update</label>
@@ -16,9 +18,10 @@ const ContactListItem = function({id,name,number,onRemove,update,onUpdate}){
         id = "delete"
         checked = {update}
         onChange = {onUpdate}
-        className = {styles.inputItem}/>
+        className = {styles.inputItem}
+        data-name={name}/>
 
-        <button type="button" onClick={onRemove}>Delete</button>
+        <button type="button" onClick={onRemove} data-type={name} className={buttonUpdatedClass}>Delete</button>
       </div>
     </li>
   )
