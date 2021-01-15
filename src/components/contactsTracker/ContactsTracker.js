@@ -52,8 +52,9 @@ export default class ContactsTracker extends Component {
 
   removeContact=e=>{
     console.log(e.target)
+    const contactID = e.target.dataset.id;
     this.setState({
-        contacts: [...this.state.contacts.filter(({name})=> name !== e.target.dataset.type)]
+        contacts: [...this.state.contacts.filter(({id})=> id !== contactID)]
     });
   };
 
@@ -61,7 +62,7 @@ export default class ContactsTracker extends Component {
     this.setState(prevState=>{
      return {
        contacts: prevState.contacts.map(contact=>{
-         return contact.name === e.target.dataset.name ?
+         return contact.id === e.target.dataset.id ?
          {...contact, update: !contact.update} : contact
        })
      }

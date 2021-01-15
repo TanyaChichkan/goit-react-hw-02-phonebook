@@ -42,13 +42,13 @@ const ContactsTrackerHook=()=> {
   };
 
   const removeContact=e=>{
-    console.log(e.target);
-    setContacts([...contacts.filter(({name})=> name !== e.target.dataset.type)]);
+    console.log(e.target.dataset.id);
+    setContacts([...contacts.filter(({id})=> id !== e.target.dataset.id)]);
   };
 
   const updateContact = e=>{
     setContacts([...contacts.map(contact=> {
-    return  contact.name === e.target.dataset.name ?
+    return  contact.id === e.target.dataset.id ?
     {...contact, update: !contact.update} : contact
     })
     ])

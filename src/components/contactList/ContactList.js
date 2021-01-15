@@ -6,12 +6,11 @@ import PropTypes from 'prop-types';
 
 const ContactList = ({contacts,onRemoveContact,onUpdateContact})=>(
   <ul className = {styles.list}>
-  {contacts.map(({id,name,number,update})=>(
+  {contacts.map((item)=>(
     <ContactListItem
-    key={id}
-    name={name}
-    number = {number}
-    update= {update}
+    key={item.id}
+    update= {item.update}
+    {...item}
     onRemove={onRemoveContact}
     onUpdate={onUpdateContact}
     />

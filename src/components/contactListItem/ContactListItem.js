@@ -4,24 +4,23 @@ import styles from './ContactListItem.module.css';
 
 const ContactListItem = function({id,name,number,onRemove,update,onUpdate}){
 
-  let updatedClass = update ? styles.updated : styles['not-updated'];
-  let textUpdatedClass = update ? styles['text-updated'] : styles['text-not-updated'];
-  let buttonUpdatedClass= update ? styles['button-updated'] : styles['button-not-updated'];
+  const updatedClass = update ? styles.updated : styles['not-updated'];
+  const textUpdatedClass = update ? styles['text-updated'] : styles['text-not-updated'];
+  const buttonUpdatedClass= update ? styles['button-updated'] : styles['button-not-updated'];
 
   return (
-    <li key={id} className = {updatedClass}>
+    <li className = {updatedClass}>
       <span className = {textUpdatedClass}>{name}: {number}</span>
 
       <div className = {styles.wrapper}>
-        <label id="delete" className = {styles.itemLabel}>update</label>
+        <label className = {styles.itemLabel}>update</label>
         <input type="checkbox"
-        id = "delete"
         checked = {update}
         onChange = {onUpdate}
         className = {styles.inputItem}
-        data-name={name}/>
+        data-id={id}/>
 
-        <button type="button" onClick={onRemove} data-type={name} className={buttonUpdatedClass}>Delete</button>
+        <button type="button" onClick={onRemove} data-id={id} className={buttonUpdatedClass}>Delete</button>
       </div>
     </li>
   )
